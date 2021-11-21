@@ -1,18 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 font-outfit bg-neutral-very_dark_blue_main text-white">
-      <Head>
-        <title>NFT-preview-card</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
-          rel="stylesheet"
-        ></link>
-      </Head>
+    <div className="grid place-items-center p-5 min-h-screen py-2 font-outfit bg-neutral-very_dark_blue_main text-white">
       <main className="bg-neutral-very_dark_blue_card max-w-sm p-8 space-y-6 rounded-xl">
         <section id="image" className="relative">
           <Image
@@ -22,6 +11,7 @@ export default function Home() {
             layout="responsive"
             className="rounded-xl bg-opacity-50"
             quality="100"
+            alt=""
           />
           <div
             id="box-image"
@@ -46,7 +36,11 @@ export default function Home() {
           </div>
         </section>
         <section id="content">
-          <h1 className="text-xl hover:text-primary-cyan">Equilibrium #3429</h1>
+          <h1 className="text-xl font-semibold">
+            <a href="#" className="hover:text-primary-cyan">
+              Equilibrium #3429
+            </a>
+          </h1>
           <p className="text-primary-soft_blue mt-4">
             Our Equilibrium collection promotes balance and calm.
           </p>
@@ -56,7 +50,7 @@ export default function Home() {
                 src="/icon-ethereum.svg"
                 width="11px"
                 height="18px"
-                fill="responsive"
+                alt="ethereum icon"
               />
               <span>0.041 ETH</span>
             </p>
@@ -65,7 +59,7 @@ export default function Home() {
                 src="/icon-clock.svg"
                 width="17px"
                 height="17px"
-                fill="responsive"
+                alt="clock icon"
               />
               <span>3 days left</span>
             </p>
@@ -74,33 +68,26 @@ export default function Home() {
         <hr />
         <section id="user">
           <div className="flex items-center space-x-5">
-            <div id="border-image" className="rounded-full">
-              <Image
-                src="/image-avatar.png"
-                width="48px"
-                height="48px"
-                fill="responsive"
-                id="borde-xd"
-              />
-            </div>
+            <Image
+              src="/image-avatar.png"
+              width="48px"
+              height="48px"
+              alt="user icon"
+            />
             <div>
-              <p className="hover:text-primary-cyan">
+              <p>
                 <span className="text-primary-soft_blue">Creation of </span>
-                Jules Wyvern
+                <a href="#" className="hover:text-primary-cyan">
+                  Jules Wyvern
+                </a>
               </p>
             </div>
           </div>
         </section>
       </main>
       <style jsx>{`
-        #border-image {
-          width: 48px;
-          height: 48px;
-          border: 1.5px solid white;
-        }
         hr {
-          border: 0.5px solid hsl(215, 32%, 27%);
-          height: 1px;
+          border: 0.1px solid hsl(215, 32%, 27%);
           width: 100%;
         }
         #image:hover #box-image {
@@ -113,9 +100,6 @@ export default function Home() {
           left: 50%;
           transform: translate(-50%, -50%);
         }
-        // #fill-eye {
-        //   fill: #00f5d4;
-        // }
       `}</style>
     </div>
   );
