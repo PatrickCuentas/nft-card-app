@@ -14,17 +14,39 @@ export default function Home() {
         ></link>
       </Head>
       <main className="bg-neutral-very_dark_blue_card max-w-sm p-8 space-y-6 rounded-xl">
-        <section id="image">
+        <section id="image" className="relative">
           <Image
             src="/image-equilibrium.jpg"
             width="250px"
             height="250px"
             layout="responsive"
-            className="rounded-xl"
+            className="rounded-xl bg-opacity-50"
+            quality="100"
           />
+          <div
+            id="box-image"
+            className="absolute inset-y-0 w-full h-full bg-primary-cyan invisible opacity-0 rounded-xl"
+          >
+            <svg
+              id="eye"
+              width="48"
+              height="48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <path d="M0 0h48v48H0z" />
+                <path
+                  id="eye-fill"
+                  d="M24 9C14 9 5.46 15.22 2 24c3.46 8.78 12 15 22 15 10.01 0 18.54-6.22 22-15-3.46-8.78-11.99-15-22-15Zm0 25c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10Zm0-16c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6Z"
+                  fill="hsl(208, 100%, 97.1%)"
+                  fillRule="nonzero"
+                />
+              </g>
+            </svg>
+          </div>
         </section>
         <section id="content">
-          <h1 className="text-xl">Equilibrium #3429</h1>
+          <h1 className="text-xl hover:text-primary-cyan">Equilibrium #3429</h1>
           <p className="text-primary-soft_blue mt-4">
             Our Equilibrium collection promotes balance and calm.
           </p>
@@ -61,10 +83,12 @@ export default function Home() {
                 id="borde-xd"
               />
             </div>
-            <p>
-              <span className="text-primary-soft_blue">Creation of </span>Jules
-              Wyvern
-            </p>
+            <div>
+              <p className="hover:text-primary-cyan">
+                <span className="text-primary-soft_blue">Creation of </span>
+                Jules Wyvern
+              </p>
+            </div>
           </div>
         </section>
       </main>
@@ -79,6 +103,19 @@ export default function Home() {
           height: 1px;
           width: 100%;
         }
+        #image:hover #box-image {
+          opacity: 0.5;
+          visibility: visible;
+        }
+        #eye {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        // #fill-eye {
+        //   fill: #00f5d4;
+        // }
       `}</style>
     </div>
   );
